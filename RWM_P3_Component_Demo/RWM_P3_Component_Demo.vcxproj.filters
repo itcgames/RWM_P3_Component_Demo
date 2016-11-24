@@ -39,7 +39,7 @@
     <ClCompile Include="EventHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SDLLabel.cpp">
+    <ClCompile Include="SDLLabelComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,7 +80,7 @@
     <ClInclude Include="EventListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SDLLabel.h">
+    <ClInclude Include="SDLLabelComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

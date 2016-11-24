@@ -6,7 +6,7 @@
 #include "GameObject.h"
 #include "InputManager.h"
 #include "ClockComponent.h"
-#include "SDLLabel.h"
+#include "SDLLabelComponent.h"
 
 
 /** The game object which manages the game loop*/
@@ -19,7 +19,7 @@ class Game:public EventListener
 
 
 	ClockComponent myClock;
-	SDLLabel label1, label2;
+	SDLLabelComponent label1, label2;
 
 	unsigned int lastTime;//time of last update;
 

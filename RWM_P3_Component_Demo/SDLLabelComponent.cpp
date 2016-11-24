@@ -1,9 +1,9 @@
-#include "SDLLabel.h"
+#include "SDLLabelComponent.h"
 
 #include <iostream>
 
 
-void SDLLabel::render(SDL_Renderer * renderer)
+void SDLLabelComponent::render(SDL_Renderer * renderer)
 {
 	//get size of text in current font
 	int w, h;
@@ -24,17 +24,17 @@ void SDLLabel::render(SDL_Renderer * renderer)
 	SDL_DestroyTexture(Message);
 }
 
-void SDLLabel::onEvent(std::string)
+void SDLLabelComponent::onEvent(std::string)
 {
 }
 
-void SDLLabel::setPos(int x, int y)
+void SDLLabelComponent::setPos(int x, int y)
 {
 	m_rect.x = x;
 	m_rect.y = y;
 }
 
-SDLLabel::SDLLabel()
+SDLLabelComponent::SDLLabelComponent()
 {
 	//Initialize SDL_ttf
 	if (!TTF_WasInit() && TTF_Init() == -1)
@@ -59,6 +59,6 @@ SDLLabel::SDLLabel()
 }
 
 
-SDLLabel::~SDLLabel()
+SDLLabelComponent::~SDLLabelComponent()
 {
 }

@@ -3,7 +3,7 @@
 #include "SDL_ttf.h"
 #include<string>
 
-class SDLLabel
+class SDLLabelComponent
 {
 	std::string m_text;
 
@@ -21,7 +21,7 @@ public:
 
 	void setPos(int x, int y);
 
-	SDLLabel();
-	~SDLLabel();
+	SDLLabelComponent();
+	~SDLLabelComponent();
 };
 
