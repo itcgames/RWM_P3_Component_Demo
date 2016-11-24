@@ -11,12 +11,12 @@ SpinningBox::~SpinningBox()
 {
 }
 
-void SpinningBox::Render(Renderer& r) {
+void SpinningBox::render(Renderer& r) {
 	r.drawWorldRect(rect,col);
 }
 
 
-void SpinningBox::Update(unsigned int deltaTime) {
+void SpinningBox::update(unsigned int deltaTime) {
 
 	float angle = angVel*deltaTime/1000;
 	Point2D p = rect.pos;//current position
@@ -27,9 +27,9 @@ void SpinningBox::Update(unsigned int deltaTime) {
 
 }
 
-void SpinningBox::onEvent(EventListener::Event evt)
+void SpinningBox::onEvent(std::string eventname)
 {
-	if (evt == EventListener::Event::REVERSE) {
+	if (eventname == "reverse") {
 		angVel *= -1;
 	}
 }

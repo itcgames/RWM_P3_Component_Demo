@@ -4,7 +4,7 @@
 using namespace std;
 
 
-
+#include "EventHandler.h"
 #include "LTimer.h"
 #include "SpinningBox.h"
 #include "Game.h"
@@ -77,11 +77,16 @@ bool Game::init() {
 	lastTime = LTimer::gameTime();
 
 	//we want this box to respond to REVERSE event
-	inputManager.AddListener(EventListener::Event::REVERSE, box1);
+	EventHandler::getInstance().AddListener("reverse", box1);
 
 	//want game loop to pause
-	inputManager.AddListener(EventListener::Event::PAUSE, this);
-	inputManager.AddListener(EventListener::Event::QUIT, this);
+	EventHandler::getInstance().AddListener("pause", this);
+	EventHandler::getInstance().AddListener("quit", this);
+
+	myClock.init();
+	label1.setText("Hello World");
+	label2.setPos(300,300);
+
 
 	return true;
 
@@ -106,8 +111,14 @@ void Game::update()
 
 	//call update on all game objects
 	for (std::vector<GameObject*>::iterator i = gameObjects.begin(); i != gameObjects.end(); i++) {
-		(*i)->Update(deltaTime);
+		(*i)->update(deltaTime);
 	}
+
+
+	//set label2's text to current time
+	label2.setText(myClock.getTimeAsString());
+
+
 
 	//save the curent time for next frame
 	lastTime = currentTime;
@@ -121,8 +132,13 @@ void Game::render()
 	
 	//render every object
 	for (std::vector<GameObject*>::iterator i = gameObjects.begin(), e= gameObjects.end(); i != e; i++) {
-		(*i)->Render(renderer);
+		(*i)->render(renderer);
 	}
+
+	label1.render(renderer.getSDLRenderer());
+	label2.render(renderer.getSDLRenderer());
+
+
 
 	renderer.present();// display the new frame (swap buffers)
 
@@ -153,13 +169,13 @@ void Game::loop()
 	}
 }
 
-void Game::onEvent(EventListener::Event evt) {
+void Game::onEvent(std::string eventname) {
 
-	if (evt == EventListener::Event::PAUSE) {
+	if (eventname == "pause") {
 		pause = !pause;
 	}
 	
-	if (evt == EventListener::Event::QUIT) {
+	if (eventname == "quit") {
 		quit=true;
 	}
 

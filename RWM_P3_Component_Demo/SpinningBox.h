@@ -18,10 +18,10 @@ public:
 
 	float angVel; //control rate of spin
 
-	void Render(Renderer & r);
+	void render(Renderer & r);
 
-	void Update(unsigned int deltaTime);
+	void update(unsigned int deltaTime);
 
-	void onEvent(EventListener::Event);
+	void onEvent(std::string);
 };
 

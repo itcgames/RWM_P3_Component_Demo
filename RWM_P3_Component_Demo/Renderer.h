@@ -36,6 +36,8 @@ public:
 	Rect worldToScreen(const Rect&);
 
 	void setViewPort(const Rect&);
+	
+	SDL_Renderer *getSDLRenderer() { return sdl_renderer; }
 
 	void destroy();
 	~Renderer();

@@ -12,8 +12,6 @@ using namespace std;
 #include "Renderer.h"
 
 
-
-
 Renderer::Renderer():sdl_renderer(NULL)
 {
 	

@@ -79,7 +79,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SDL_SDK)\lib\x86</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;version.lib;imm32.lib;winmm.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2_ttf.lib;SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;version.lib;imm32.lib;winmm.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(TargetPath) $(SolutionDir)\Executable</Command>
@@ -121,22 +121,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ClockComponent.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="LTimer.cpp" />
     <ClCompile Include="main_app.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="SDLLabel.cpp" />
     <ClCompile Include="SpinningBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicTypes.h" />
+    <ClInclude Include="ClockComponent.h" />
     <ClInclude Include="EventListener.h" />
+    <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="LTimer.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="SDLLabel.h" />
     <ClInclude Include="SpinningBox.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

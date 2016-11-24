@@ -21,7 +21,9 @@ int main()
 
 	//run the game loop
 	game.loop();
-
+	//loop returns on game exit
+	
+	//clean up
 	game.destroy();
 
     return 0;

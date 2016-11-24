@@ -13,8 +13,8 @@ public:
 	GameObject() {};
 	virtual ~GameObject() {};
 
-	virtual void Render(Renderer& r)=0;
-	virtual void Update(unsigned int deltaTime)=0;
+	virtual void render(Renderer& r)=0;
+	virtual void update(unsigned int deltaTime)=0;
 
 
 };
