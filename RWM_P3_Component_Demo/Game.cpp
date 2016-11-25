@@ -42,16 +42,6 @@ bool Game::init() {
 	Rect vpRect(vpBottomLeft,vpSize);
 	renderer.setViewPort(vpRect);
 
-
-	
-	SpinningBox* box6 = new SpinningBox(Rect((vpWidth / 2)-1, ((vpWidth / 2) / aspectRatio) -1, 1, 1));
-	box6->col = Colour(255, 100, 0);//orange
-
-
-	//add out boxes to the gameworld
-
-	gameObjects.push_back(box6);
-
 	
 	lastTime = LTimer::gameTime();
 
@@ -164,9 +154,9 @@ void Game::onEvent(const Event e) {
 			SDL_Rect rect_ptr = e.getData<SDL_Rect>();
 			Rect worldrect = renderer.screenToWorld(Rect(rect_ptr.x, rect_ptr.y, rect_ptr.w, rect_ptr.h));
 			SpinningBox* newBox = new SpinningBox(worldrect);
-			newBox->col = Colour(rand()%200+55, rand() % 200 + 55, rand() % 200 + 55);//orange
-			newBox->vel = { 0,-0.01f-(rand() % 10 / 100.0f) };
-			newBox->angVel =  -0.5+(rand() % 100 / 100.0);
+			newBox->col = Colour(randBetween(50,255), randBetween(50, 255), randBetween(50, 255));
+			newBox->vel = { 0,randBetween(-0.01f,-0.1f) };
+			//newBox->angVel =  rand-0.5+(rand() % 100 / 100.0);
 
 
 

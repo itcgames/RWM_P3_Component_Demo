@@ -1,4 +1,5 @@
 #pragma once
+#include<stdlib.h>
 
 
 //Define some basic types needed for 2D graphics
@@ -35,3 +36,18 @@ public:
 	Rect(float x = 0, float y = 0, float w = 1, float h = 1) :pos(x, y), size(w, h) {};
 
 };
+
+inline float randBetween(float s, float e) {
+	float range = e - s;
+
+	double numBetween0_1 = (double)rand() / RAND_MAX;
+
+	double pointInRange = range*numBetween0_1;
+
+	return s + (float)pointInRange;
+
+}
+
+inline int randBetween(int s, int e) {
+	return (int)randBetween((float)s, (float)e);
+}
