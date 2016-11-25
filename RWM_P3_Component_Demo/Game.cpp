@@ -165,6 +165,9 @@ void Game::onEvent(const Event e) {
 			Rect worldrect = renderer.screenToWorld(Rect(rect_ptr.x, rect_ptr.y, rect_ptr.w, rect_ptr.h));
 			SpinningBox* newBox = new SpinningBox(worldrect);
 			newBox->col = Colour(rand()%200+55, rand() % 200 + 55, rand() % 200 + 55);//orange
+			newBox->vel = { 0,-0.01f-(rand() % 10 / 100.0f) };
+			newBox->angVel =  -0.5+(rand() % 100 / 100.0);
+
 
 
 			gameObjects.push_back(newBox);

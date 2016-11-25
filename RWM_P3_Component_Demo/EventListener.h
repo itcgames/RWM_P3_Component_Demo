@@ -31,14 +31,14 @@ public:
 	template<class T>  T getData() const
 	{
 		//data is a pointer to a shared pointer to the dataObject
-		/*std::unique_ptr<
+		std::unique_ptr<
 			std::shared_ptr<T>
 			> data_ptr((std::shared_ptr<T>*) data);
-		*/
+		
 
-		//std::shared_ptr<T> object_ptr = *data_ptr;
+		std::shared_ptr<T> object_ptr = *data_ptr;
 
-		return **data;
+		return *object_ptr;
 
 	}
 

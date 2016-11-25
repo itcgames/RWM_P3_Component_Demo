@@ -12,6 +12,8 @@ public:
 
 };
 
+typedef  Point2D Vector2D;
+
 
 class Size2D {
 public:

@@ -17,6 +17,7 @@ public:
 	Colour col;
 
 	float angVel; //control rate of spin
+	Vector2D vel;
 
 	void render(Renderer & r);
 
