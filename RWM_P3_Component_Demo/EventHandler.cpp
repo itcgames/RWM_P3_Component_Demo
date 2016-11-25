@@ -15,14 +15,14 @@ void EventHandler::AddListener(std::string eventName, EventListener *listener)
 }
 
 //Send the events to interested objects
-void EventHandler::Dispatch(std::string eventname)
+void EventHandler::dispatch(const Event e)
 {
 
 	// find the list of listners for this event name
-	if (listeners.find(eventname) != listeners.end()) {
+	if (listeners.find(e.name) != listeners.end()) {
 
-		for (auto const &listener : *listeners[eventname]) { //go through all listeners for this event
-			listener->onEvent(eventname); //Call onEvent for the listener
+		for (auto const &listener : *listeners[e.name]) { //go through all listeners for this event
+			listener->onEvent(e); //Call onEvent for the listener
 
 		}
 	}

@@ -7,18 +7,20 @@ void InputManager::ProcessInput()
 	SDL_Event e;
 	while (SDL_PollEvent(&e) != 0)
 	{
+		Event newevent;
 		switch (e.type) {
 			/* Keyboard event */
 			case SDL_KEYDOWN:
+				
 				switch (e.key.keysym.sym) {
 				case SDLK_SPACE:
-					
-					EventHandler::getInstance().Dispatch("pause");
+					newevent.name = "pause";
+					EventHandler::getInstance().dispatch(newevent);
 					break;
 
 				case SDLK_r:
-
-					EventHandler::getInstance().Dispatch("reverse");
+					newevent.name = "reverse";
+					EventHandler::getInstance().dispatch(Event("sds"));
 					break;
 
 				}
@@ -27,8 +29,8 @@ void InputManager::ProcessInput()
 			
 			/* SDL_QUIT event (window close) */
 			case SDL_QUIT:
-
-				EventHandler::getInstance().Dispatch("quit");
+				newevent.name="quit";
+				EventHandler::getInstance().dispatch(newevent);
 				break;
 
 			default:

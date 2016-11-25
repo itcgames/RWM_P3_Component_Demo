@@ -89,6 +89,18 @@ Point2D Renderer::worldToScreen(const Point2D &p)
 	
 	return Point2D(x,y);
 }
+
+Point2D Renderer::screenToWorld(const Point2D &p)
+{
+	float vpTop = viewportBottomLeft.y + viewportSize.h;
+	float x = viewportBottomLeft.x + p.x*(viewportSize.w / windowSize.w);
+	
+	float y = vpTop - p.y*viewportSize.h/ windowSize.h;
+
+	return Point2D(x, y);
+}
+
+
 Rect Renderer::worldToScreen(const Rect &r)
 {
 	Point2D p = worldToScreen(r.pos);
@@ -97,6 +109,18 @@ Rect Renderer::worldToScreen(const Rect &r)
 
 	return Rect(p,Size2D(sw,sh));
 }
+
+Rect Renderer::screenToWorld(const Rect &r)
+{
+
+	Point2D p = screenToWorld(r.pos);
+	
+	float ww = r.size.w*( viewportSize.w/ windowSize.w);
+	float wh = -r.size.h*(  viewportSize.h/windowSize.h);
+
+	return Rect(p, Size2D(ww, wh));
+}
+
 void Renderer::setViewPort(const Rect &r)
 {
 	viewportBottomLeft = r.pos;

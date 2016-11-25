@@ -17,7 +17,7 @@ public:
 
 	void render(SDL_Renderer*);
 
-	void onEvent(std::string);
+	
 
 	void setPos(int x, int y);
 

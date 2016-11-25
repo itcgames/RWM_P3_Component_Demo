@@ -24,9 +24,7 @@ void SDLLabelComponent::render(SDL_Renderer * renderer)
 	SDL_DestroyTexture(Message);
 }
 
-void SDLLabelComponent::onEvent(std::string)
-{
-}
+
 
 void SDLLabelComponent::setPos(int x, int y)
 {
@@ -43,7 +41,7 @@ SDLLabelComponent::SDLLabelComponent()
 
 	}
 
-	m_font = TTF_OpenFont("trebuc.ttf", 72); //this opens a font style and sets a size
+	m_font = TTF_OpenFont("trebuc.ttf", 60); //this opens a font style and sets a size
 	if (m_font == NULL)
 	{
 		std::cout << "Failed to load trebuc.ttf font! SDL_ttf Error: "<< TTF_GetError();

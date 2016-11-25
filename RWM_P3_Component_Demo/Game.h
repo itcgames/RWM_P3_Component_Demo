@@ -7,6 +7,7 @@
 #include "InputManager.h"
 #include "ClockComponent.h"
 #include "SDLLabelComponent.h"
+#include "RectangleSelectionComponent.h"
 
 
 /** The game object which manages the game loop*/
@@ -20,6 +21,7 @@ class Game:public EventListener
 
 	ClockComponent myClock;
 	SDLLabelComponent label1, label2;
+	RectangleSelectionComponent rectSelComp;
 
 	unsigned int lastTime;//time of last update;
 
@@ -37,6 +39,6 @@ public:
 	void render();
 	void loop();
 
-	void onEvent(std::string);
+	void onEvent(const Event);
 };
 

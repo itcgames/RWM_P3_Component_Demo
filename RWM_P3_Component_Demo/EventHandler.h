@@ -21,8 +21,7 @@ public:
 	}
 
 	void AddListener(std::string eventName, EventListener * listener);
-	void Dispatch(std::string eventName);
-
+	void dispatch(const Event);
 
 
 private:
@@ -30,4 +29,5 @@ private:
 
 
 };
+
 

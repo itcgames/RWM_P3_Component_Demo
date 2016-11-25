@@ -146,6 +146,7 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="LTimer.cpp" />
     <ClCompile Include="main_app.cpp" />
+    <ClCompile Include="RectangleSelectionComponent.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SDLLabelComponent.cpp" />
     <ClCompile Include="SpinningBox.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="LTimer.h" />
+    <ClInclude Include="RectangleSelectionComponent.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SDLLabelComponent.h" />
     <ClInclude Include="SpinningBox.h" />

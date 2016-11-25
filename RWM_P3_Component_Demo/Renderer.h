@@ -33,7 +33,10 @@ public:
 	void present();
 	void clear(const Colour&);
 	Point2D worldToScreen(const Point2D&);
+	Point2D screenToWorld(const Point2D & p);
 	Rect worldToScreen(const Rect&);
+
+	Rect screenToWorld(const Rect & r);
 
 	void setViewPort(const Rect&);
 	

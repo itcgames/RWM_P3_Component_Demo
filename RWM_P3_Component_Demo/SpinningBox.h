@@ -22,6 +22,6 @@ public:
 
 	void update(unsigned int deltaTime);
 
-	void onEvent(std::string);
+	void onEvent(const Event);
 };
 

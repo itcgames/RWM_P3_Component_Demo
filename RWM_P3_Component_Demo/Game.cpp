@@ -43,48 +43,28 @@ bool Game::init() {
 	renderer.setViewPort(vpRect);
 
 
-	//create some game objects
-
-	SpinningBox* box1 = new SpinningBox(Rect(5,0,4,0.2f));
-	box1->col = Colour(255, 255, 0);
-	box1->angVel = 0.5f;//radian per seconds	
-	SpinningBox* box2 = new SpinningBox(Rect(5, 0, 1, 1));
-	box2->angVel = -0.85f;//radian per seconds
-	box2->col = Colour(50, 255, 255);
-	SpinningBox* box3 = new SpinningBox(Rect(0, 0, 1, 1));
-	box3->angVel = -0.1f;//radian per seconds	
-	box3->col = Colour(200, 100, 255);
-	SpinningBox* box4 = new SpinningBox(Rect(0, 0, 1, 1));
-	box4->angVel = .0f;//radian per seconds	
-
-	//calibration check: this box should be just inside bottom left of window
-	SpinningBox* box5 = new SpinningBox(Rect(-vpWidth/2, (-vpWidth / 2) / aspectRatio, 1, 1));
-	box5->col = Colour(255,0,0);//red
-	//calibration check: this box should be just inside top right of window
+	
 	SpinningBox* box6 = new SpinningBox(Rect((vpWidth / 2)-1, ((vpWidth / 2) / aspectRatio) -1, 1, 1));
 	box6->col = Colour(255, 100, 0);//orange
 
 
 	//add out boxes to the gameworld
-	gameObjects.push_back(box1);
-	gameObjects.push_back(box2);
-	gameObjects.push_back(box3);
-	gameObjects.push_back(box4);
-	gameObjects.push_back(box5);
+
 	gameObjects.push_back(box6);
 
 	
 	lastTime = LTimer::gameTime();
 
-	//we want this box to respond to REVERSE event
-	EventHandler::getInstance().AddListener("reverse", box1);
 
 	//want game loop to pause
 	EventHandler::getInstance().AddListener("pause", this);
 	EventHandler::getInstance().AddListener("quit", this);
 
 	myClock.init();
-	label1.setText("Hello World");
+
+	EventHandler::getInstance().AddListener("newbox", this);
+
+	label1.setText("Drag Mouse to make boxes!");
 	label2.setPos(300,300);
 
 
@@ -118,7 +98,7 @@ void Game::update()
 	//set label2's text to current time
 	label2.setText(myClock.getTimeAsString());
 
-
+	rectSelComp.update(deltaTime);
 
 	//save the curent time for next frame
 	lastTime = currentTime;
@@ -138,6 +118,7 @@ void Game::render()
 	label1.render(renderer.getSDLRenderer());
 	label2.render(renderer.getSDLRenderer());
 
+	rectSelComp.render(renderer.getSDLRenderer());
 
 
 	renderer.present();// display the new frame (swap buffers)
@@ -169,14 +150,25 @@ void Game::loop()
 	}
 }
 
-void Game::onEvent(std::string eventname) {
+void Game::onEvent(const Event e) {
 
-	if (eventname == "pause") {
+	if (e.name == "pause") {
 		pause = !pause;
 	}
 	
-	if (eventname == "quit") {
+	if (e.name == "quit") {
 		quit=true;
 	}
+
+	if (e.name == "newbox") {
+			SDL_Rect rect_ptr = e.getData<SDL_Rect>();
+			Rect worldrect = renderer.screenToWorld(Rect(rect_ptr.x, rect_ptr.y, rect_ptr.w, rect_ptr.h));
+			SpinningBox* newBox = new SpinningBox(worldrect);
+			newBox->col = Colour(rand()%200+55, rand() % 200 + 55, rand() % 200 + 55);//orange
+
+
+			gameObjects.push_back(newBox);
+	}
+
 
 }
