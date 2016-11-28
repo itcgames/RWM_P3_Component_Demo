@@ -30,8 +30,11 @@ public:
 	//reverse of setData.
 	template<class T>  T getData() const
 	{
+		//reverse the operation of setData
 		//data is a pointer to a shared pointer to the dataObject
-		std::unique_ptr<
+		
+	
+		std::shared_ptr<
 			std::shared_ptr<T>
 			> data_ptr((std::shared_ptr<T>*) data);
 		

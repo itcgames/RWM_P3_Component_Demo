@@ -151,8 +151,8 @@ void Game::onEvent(const Event e) {
 	}
 
 	if (e.name == "newbox") {
-			SDL_Rect rect_ptr = e.getData<SDL_Rect>();
-			Rect worldrect = renderer.screenToWorld(Rect(rect_ptr.x, rect_ptr.y, rect_ptr.w, rect_ptr.h));
+			SDL_Rect rect = e.getData<SDL_Rect>();
+			Rect worldrect = renderer.screenToWorld(Rect(rect.x, rect.y, rect.w, rect.h));
 			SpinningBox* newBox = new SpinningBox(worldrect);
 			newBox->col = Colour(randBetween(50,255), randBetween(50, 255), randBetween(50, 255));
 			newBox->vel = { 0,randBetween(-0.01f,-0.1f) };
