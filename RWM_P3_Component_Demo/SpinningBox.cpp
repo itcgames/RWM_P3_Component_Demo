@@ -22,12 +22,10 @@ void SpinningBox::update(unsigned int deltaTime) {
 	Point2D p = rect.pos;//current position
 	
 	//apply a rotation about the box's centre
-
-
-
 	//rect.pos.x = (float)cos(angle)*p.x - (float)sin(angle)*p.y;
 	//rect.pos.y = (float)sin(angle)*p.x + (float)cos(angle)*p.y;
 
+	//drop the box
 	rect.pos.x += vel.x;
 	rect.pos.y += vel.y;
 

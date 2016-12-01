@@ -2,7 +2,6 @@
 #include "Events.h"
 #include "IEventListener.h"
 #include "EventHandler.h"
-
 class Event {
 
 public:
@@ -15,12 +14,14 @@ public:
 	//to assign an owner to the dataobject for  memory deallocation purposes.
 	//We also don't know what type the data objects will be
 	//the dataObject is cloned 
+
+	//based on code here http ://stackoverflow.com/questions/31063055/passing-a-shared-ptr-through-a-c-interface-that-takes-void/31064361#31064361
 	template<class T>  void setData(const T dataObject)
 	{
 
 		//Create a new object to store the data, pointed to by smart pointer
 		std::shared_ptr<T> object_ptr(new T);
-		//clone the data into the new object
+		//clone the data into the new object, shallow copy
 		*object_ptr = dataObject;
 
 		//data will point to the shared_pointer
@@ -34,7 +35,6 @@ public:
 	{
 		//reverse the operation of setData
 		//data is a pointer to a shared pointer to the dataObject
-
 
 		std::shared_ptr<
 			std::shared_ptr<T>
