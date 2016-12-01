@@ -1,6 +1,5 @@
 
 #include "ClockComponent.h"
-
 #include <ctime>
 #include <chrono>
 #include <sstream>

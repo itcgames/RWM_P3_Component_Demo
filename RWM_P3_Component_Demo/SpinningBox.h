@@ -2,9 +2,9 @@
 
 #include "GameObject.h"
 #include "BasicTypes.h"
-#include "EventListener.h"
+#include "Event.h"
 
-/**define a box that spins aronf the centre*/
+/**define a box that spins around the centre*/
 class SpinningBox:public GameObject, public EventListener
 {
 	

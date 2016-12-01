@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="EventSystem">
+      <UniqueIdentifier>{d92fd3f9-9a91-44f6-9235-4f227c25a0ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -36,14 +39,14 @@
     <ClCompile Include="ClockComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EventHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SDLLabelComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RectangleSelectionComponent.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>EventSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,17 +80,23 @@
     <ClInclude Include="ClockComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EventHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EventListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SDLLabelComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RectangleSelectionComponent.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IEventListener.h">
+      <Filter>EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>EventSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

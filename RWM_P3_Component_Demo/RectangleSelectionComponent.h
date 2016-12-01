@@ -1,7 +1,7 @@
 #pragma once
 #include<memory>
 #include "SDL.h"
-#include "EventListener.h"
+#include "Event.h"
 
 
 class RectangleSelectionComponent

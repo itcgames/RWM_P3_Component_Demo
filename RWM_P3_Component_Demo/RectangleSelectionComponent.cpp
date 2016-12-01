@@ -1,5 +1,5 @@
 #include "RectangleSelectionComponent.h"
-#include "EventHandler.h"
+#include "Event.h"
 
 
 
@@ -23,7 +23,7 @@ void RectangleSelectionComponent::update(unsigned int deltaTime)
 		{ // we were in middle of dragging action, but mouse has been released, so end dragging
 			m_isDragging = false;
 			//send a message to make a new box
-			Event e("newbox");
+			Event e(Events::newbox);
 			e.setData<SDL_Rect>(getRectanglefromPoints());
 
 			EventHandler::getInstance().dispatch(e);

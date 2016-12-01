@@ -1,13 +1,15 @@
 #pragma once
-#include "EventListener.h"
+#include "Events.h"
+#include "IEventListener.h"
 #include "Map"
 #include "vector"
 
+class Event;//forward decl
 
 class EventHandler
 {
 	std::map<
-		std::string,
+		Events,
 		std::vector<EventListener*>* //pointer to vec of eventlisteners
 	> listeners;
 
@@ -20,7 +22,7 @@ public:
 		return instance;
 	}
 
-	void AddListener(std::string eventName, EventListener * listener);
+	void AddListener(Events, EventListener * listener);
 	void dispatch(const Event);
 
 

@@ -34,6 +34,7 @@ public:
 	Size2D size;
 	Rect(Point2D p, Size2D s) :pos(p), size(s) {};
 	Rect(float x = 0, float y = 0, float w = 1, float h = 1) :pos(x, y), size(w, h) {};
+	Rect(int x , int y,  int w , int h ) :pos((float)x, (float)y), size((float)w, (float)h) {};
 
 };
 

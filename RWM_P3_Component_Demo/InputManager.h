@@ -9,7 +9,7 @@
 
 
 
-#include "EventHandler.h"
+#include "Event.h"
 
 /*Convert input into logical events*/
 class InputManager

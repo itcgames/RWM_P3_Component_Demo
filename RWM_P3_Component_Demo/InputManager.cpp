@@ -14,13 +14,11 @@ void InputManager::ProcessInput()
 				
 				switch (e.key.keysym.sym) {
 				case SDLK_SPACE:
-					newevent.name = "pause";
-					EventHandler::getInstance().dispatch(newevent);
+					newevent.type = Events::pause;
 					break;
 
 				case SDLK_r:
-					newevent.name = "reverse";
-					EventHandler::getInstance().dispatch(Event("sds"));
+					newevent.type = Events::pause;
 					break;
 
 				}
@@ -29,8 +27,7 @@ void InputManager::ProcessInput()
 			
 			/* SDL_QUIT event (window close) */
 			case SDL_QUIT:
-				newevent.name="quit";
-				EventHandler::getInstance().dispatch(newevent);
+				newevent.type=Events::quit;
 				break;
 
 			default:

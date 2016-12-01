@@ -1,6 +1,6 @@
 #pragma once
 #include "SDL.h"
-#include "EventListener.h"
+#include "Event.h"
 #include <string>
 
 class ClockComponent

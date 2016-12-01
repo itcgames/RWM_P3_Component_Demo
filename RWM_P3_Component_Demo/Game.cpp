@@ -4,7 +4,7 @@
 using namespace std;
 
 
-#include "EventHandler.h"
+#include "Event.h"
 #include "LTimer.h"
 #include "SpinningBox.h"
 #include "Game.h"
@@ -47,14 +47,14 @@ bool Game::init() {
 
 
 	//want game loop to pause
-	EventHandler::getInstance().AddListener("pause", this);
-	EventHandler::getInstance().AddListener("quit", this);
+	EventHandler::getInstance().AddListener(Events::pause, this);
+	EventHandler::getInstance().AddListener(Events::quit, this);
 
 	myClock.init();
 
-	EventHandler::getInstance().AddListener("newbox", this);
+	EventHandler::getInstance().AddListener(Events::newbox, this);
 
-	label1.setText("Drag Mouse to make boxes!");
+	label1.setText("Drag mouse to make boxes!");
 	label2.setPos(300,300);
 
 
@@ -142,15 +142,15 @@ void Game::loop()
 
 void Game::onEvent(const Event e) {
 
-	if (e.name == "pause") {
+	if (e.type == Events::pause) {
 		pause = !pause;
 	}
 	
-	if (e.name == "quit") {
+	if (e.type == Events::quit) {
 		quit=true;
 	}
 
-	if (e.name == "newbox") {
+	if (e.type == Events::newbox) {
 			SDL_Rect rect = e.getData<SDL_Rect>();
 			Rect worldrect = renderer.screenToWorld(Rect(rect.x, rect.y, rect.w, rect.h));
 			SpinningBox* newBox = new SpinningBox(worldrect);
@@ -163,5 +163,6 @@ void Game::onEvent(const Event e) {
 			gameObjects.push_back(newBox);
 	}
 
+	
 
 }

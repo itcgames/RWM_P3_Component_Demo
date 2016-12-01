@@ -35,7 +35,7 @@ void SpinningBox::update(unsigned int deltaTime) {
 
 void SpinningBox::onEvent(const Event e)
 {
-	if (e.name == "reverse") {
+	if (e.type == Events::reverse) {
 		angVel *= -1;
 	}
 }

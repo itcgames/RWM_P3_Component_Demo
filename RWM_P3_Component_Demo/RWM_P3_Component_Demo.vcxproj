@@ -158,8 +158,10 @@
   <ItemGroup>
     <ClInclude Include="BasicTypes.h" />
     <ClInclude Include="ClockComponent.h" />
-    <ClInclude Include="EventListener.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="IEventListener.h" />
     <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="Events.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="InputManager.h" />
